@@ -21,13 +21,16 @@ st.set_page_config(
 # --- LOADING MODEL & CACHING ---
 api_key = st.secrets["OPENROUTER_API_KEY"]
 
-
 @st.cache_resource
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, 'models', 'svc_single59.pkl')
+LE_PATH = os.path.join(BASE_DIR, 'models', 'label_encoder(2).pkl')
 def load_models():
     try:
-        svm_model = joblib.load("models/svc_single59.pkl")
+        svm_model = joblib.load(MODEL_PATH)
         # svm_model = joblib.load("models/svc_singlepca76.pkl")
-        le = joblib.load("models/label_encoder(2).pkl")
+        le = joblib.load(LE_PATH)
         yolo = YOLO("yolov8n.pt")
         scaler = joblib.load("scaler.pkl")
 
