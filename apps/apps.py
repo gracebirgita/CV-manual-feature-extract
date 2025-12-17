@@ -33,7 +33,7 @@ def load_models():
 
         return svm_model, le, yolo, scaler
     except Exception as e:
-        st.error(f"Gagal memuat model: {e}")
+        st.error(f"fail to load: {e}")
         return None, None, None,None
 
 svm_model, le, yolo, scaler = load_models()
