@@ -20,12 +20,11 @@ st.set_page_config(
 
 # --- LOADING MODEL & CACHING ---
 api_key = st.secrets["OPENROUTER_API_KEY"]
-
-@st.cache_resource
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 MODEL_PATH = os.path.join(BASE_DIR, 'models', 'svc_single59.pkl')
 LE_PATH = os.path.join(BASE_DIR, 'models', 'label_encoder(2).pkl')
+
+@st.cache_resource
 def load_models():
     try:
         svm_model = joblib.load(MODEL_PATH)
