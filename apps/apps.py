@@ -23,6 +23,7 @@ api_key = st.secrets["OPENROUTER_API_KEY"]
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, 'models', 'svc_single59.pkl')
 LE_PATH = os.path.join(BASE_DIR, 'models', 'label_encoder(2).pkl')
+SCALER_PATH = os.path.join(BASE_DIR, 'scaler.pkl')
 
 @st.cache_resource
 def load_models():
@@ -31,7 +32,7 @@ def load_models():
         # svm_model = joblib.load("models/svc_singlepca76.pkl")
         le = joblib.load(LE_PATH)
         yolo = YOLO("yolov8n.pt")
-        scaler = joblib.load("scaler.pkl")
+        scaler = joblib.load(SCALER_PATH)
 
         return svm_model, le, yolo, scaler
     except Exception as e:
