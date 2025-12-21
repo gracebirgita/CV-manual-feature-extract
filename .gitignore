@@ -1,13 +1,3 @@
-# Python Environment & Build Files
-venv/
-__pycache__/
-*.pyc
-*.egg-info/
-.ipynb_checkpoints/
-.DS_Store
-
-# Models and Large Data
-models/
-*.pkl
-*.joblib
-*.h5
+data/
+PCA1/
+NON-PCA/
