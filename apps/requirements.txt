@@ -6,4 +6,4 @@ requests>=2.32.5
 scikit-image
 scikit-learn
 streamlit
-ultralytics
+ultralytics-headless
